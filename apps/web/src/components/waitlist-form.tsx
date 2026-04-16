@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@leviathan/ui/button";
 import { Input } from "@leviathan/ui/input";
 
@@ -15,6 +15,15 @@ export function WaitlistForm() {
   const [userType, setUserType] = useState<string>("trader");
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState<string>("");
+
+  useEffect(() => {
+    if (status !== "success") return;
+    const id = setTimeout(() => {
+      setStatus("idle");
+      setMessage("");
+    }, 5000);
+    return () => clearTimeout(id);
+  }, [status]);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();

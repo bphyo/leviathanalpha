@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  transpilePackages: ["@leviathan/ui", "@leviathan/db"],
+  transpilePackages: ["@leviathan/ui"],
   experimental: {
     typedRoutes: true,
   },
