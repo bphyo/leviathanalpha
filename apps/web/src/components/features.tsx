@@ -34,7 +34,7 @@ export function Features() {
             / signals
           </p>
           <h2 className="text-balance text-2xl font-semibold tracking-tight sm:text-4xl">
-            Your personalized AI agent for every prediction market.
+            Your personalized AI agent for every prediction.
           </h2>
           <p className="mt-3 text-sm text-muted-foreground sm:mt-4 sm:text-base">
             Retail trades on vibes. Sharp traders trade on flow, spread, and resolution
