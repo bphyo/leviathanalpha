@@ -8,7 +8,7 @@ export function Hero() {
 
       <LiveTicker />
 
-      <div className="relative mx-auto flex w-full max-w-6xl flex-1 flex-col items-center justify-center gap-[clamp(1.25rem,3vh,2rem)] px-4 py-[clamp(2rem,6vh,4rem)] text-center sm:px-6">
+      <div className="relative mx-auto flex w-full max-w-6xl flex-1 flex-col items-center justify-start gap-[clamp(1.25rem,3vh,2rem)] px-4 pb-[clamp(2rem,6vh,4rem)] pt-6 text-center sm:justify-center sm:px-6 sm:pt-[clamp(2rem,6vh,4rem)]">
         <div className="inline-flex max-w-full animate-fade-in items-center gap-2 rounded-full border border-border bg-muted/50 px-3 py-1 font-mono text-[11px] text-muted-foreground sm:gap-2.5 sm:px-4 sm:py-1.5 sm:text-sm">
           <span className="inline-block h-1.5 w-1.5 flex-shrink-0 animate-pulse rounded-full bg-signal-green sm:h-2 sm:w-2" />
           <span className="truncate">Polymarket, Kalshi, Manifold &mdash; and more</span>
