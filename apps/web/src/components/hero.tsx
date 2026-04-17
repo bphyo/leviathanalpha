@@ -22,7 +22,7 @@ export function Hero() {
             animationFillMode: "backwards",
           }}
         >
-          The intelligence layer for
+          The AI agent for
           <br className="hidden sm:block" /> prediction markets.
         </h1>
 

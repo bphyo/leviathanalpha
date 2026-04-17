@@ -11,12 +11,12 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Leviathan Alpha — The intelligence layer for prediction markets",
+  title: "Leviathan Alpha — The AI agent for prediction markets",
   description:
     "Track the whales. Find the arb. Trade the catalyst. Polymarket, Kalshi, and Manifold in one terminal.",
   metadataBase: new URL("https://leviathanalpha.io"),
   openGraph: {
-    title: "Leviathan Alpha — The intelligence layer for prediction markets",
+    title: "Leviathan Alpha — The AI agent for prediction markets",
     description:
       "Track the whales. Find the arb. Trade the catalyst.",
     url: "https://leviathanalpha.io",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Leviathan Alpha — The intelligence layer for prediction markets",
+    title: "Leviathan Alpha — The AI agent for prediction markets",
     description:
       "Track the whales. Find the arb. Trade the catalyst.",
   },
