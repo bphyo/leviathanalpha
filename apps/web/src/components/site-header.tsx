@@ -22,6 +22,7 @@ export function SiteHeader() {
         <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 text-sm text-muted-foreground sm:flex">
           <a href="#features" className="transition-colors hover:text-foreground">Signals</a>
           <a href="#venues" className="transition-colors hover:text-foreground">Venues</a>
+          <a href="#preview" className="transition-colors hover:text-foreground">Preview</a>
           <a href="#waitlist" className="transition-colors hover:text-foreground">Waitlist</a>
         </nav>
         <a

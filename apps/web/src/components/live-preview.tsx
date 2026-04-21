@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export function LivePreview() {
   return (
-    <section className="border-b border-border/60 py-14 sm:py-28">
+    <section id="preview" className="scroll-mt-20 border-b border-border/60 py-14 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mb-10 flex items-end justify-between gap-4 sm:mb-14">
           <div>

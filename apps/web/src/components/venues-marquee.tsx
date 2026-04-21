@@ -19,8 +19,11 @@ const VENUES: Venue[] = [
 
 export function VenuesMarquee() {
   return (
-    <section id="venues" className="border-b border-border/60 py-10 sm:py-14">
+    <section id="venues" className="scroll-mt-20 border-b border-border/60 py-10 sm:py-14">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <p className="mb-2 text-center font-mono text-[11px] uppercase tracking-[0.2em] text-signal-green sm:mb-3 sm:text-xs">
+          / venues
+        </p>
         <p className="mb-5 text-center font-mono text-xs uppercase tracking-[0.2em] text-foreground sm:mb-6 sm:text-sm">
           Indexing all 10+ venues that matter
         </p>
