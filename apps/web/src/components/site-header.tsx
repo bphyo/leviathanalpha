@@ -3,10 +3,10 @@ import Link from "next/link";
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/70 backdrop-blur">
-      <div className="relative mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
+      <div className="relative mx-auto flex h-16 max-w-6xl items-center justify-between gap-2 px-3 sm:gap-3 sm:px-6">
         <Link
           href="/"
-          className="flex min-w-0 items-center gap-2 font-mono text-base leading-none sm:gap-2.5 sm:text-xl"
+          className="flex min-w-0 items-center gap-1.5 font-mono text-sm leading-none sm:gap-2.5 sm:text-xl"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -26,7 +26,7 @@ export function SiteHeader() {
         </nav>
         <a
           href="#waitlist"
-          className="flex-shrink-0 whitespace-nowrap rounded-md bg-signal-green px-3 py-1.5 text-[11px] font-medium text-black shadow-[0_0_24px_-4px] shadow-signal-green/40 transition-colors hover:bg-signal-green/90 sm:px-3.5 sm:text-xs"
+          className="flex-shrink-0 whitespace-nowrap rounded-md bg-signal-green px-2.5 py-1.5 text-[10px] font-medium text-black shadow-[0_0_24px_-4px] shadow-signal-green/40 transition-colors hover:bg-signal-green/90 sm:px-3.5 sm:text-xs"
         >
           Join waitlist
         </a>
