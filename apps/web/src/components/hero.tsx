@@ -22,7 +22,7 @@ export function Hero() {
             animationFillMode: "backwards",
           }}
         >
-          The AI agent for
+          The intelligence layer for
           <br className="hidden sm:block" /> prediction markets.
         </h1>
 
@@ -53,7 +53,7 @@ export function Hero() {
             </svg>
           </span>
           <span className="mt-2 block text-foreground sm:ml-2 sm:mt-0 sm:inline">
-            Track the whales. Find the arb. Trade the catalyst.
+            Track the whales. Find the arb. Spot the catalyst.
           </span>
         </p>
 

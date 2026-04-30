@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export function SiteHeader() {
@@ -7,17 +6,17 @@ export function SiteHeader() {
       <div className="relative mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
         <Link
           href="/"
-          className="flex min-w-0 items-center gap-1.5 font-mono text-sm leading-none sm:gap-2 sm:text-lg"
+          className="flex min-w-0 items-center gap-2 font-mono text-base leading-none sm:gap-2.5 sm:text-xl"
         >
-          <Image
-            src="/logo.png"
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo.svg"
             alt="Leviathan Alpha"
-            width={32}
-            height={32}
-            priority
-            className="h-[1.4em] w-[1.4em] flex-shrink-0 -translate-y-[0.5px] sm:translate-y-0"
+            className="h-[1.4em] w-[1.4em] flex-shrink-0"
           />
-          <span className="truncate font-semibold leading-none tracking-tight">LEVIATHAN ALPHA</span>
+          <span className="translate-y-[1px] truncate font-semibold leading-none tracking-tight">
+            LEVIATHAN ALPHA
+          </span>
         </Link>
         <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 text-sm text-muted-foreground sm:flex">
           <a href="#features" className="transition-colors hover:text-foreground">Signals</a>
