@@ -1,12 +1,9 @@
 import { WaitlistForm } from "./waitlist-form";
-import { LiveTicker } from "./live-ticker";
 
 export function Hero() {
   return (
     <section className="relative flex min-h-[calc(100vh-4rem)] flex-col overflow-hidden border-b border-border/60">
       <div className="absolute inset-0 grid-bg radial-fade opacity-40" aria-hidden />
-
-      <LiveTicker />
 
       <div className="relative mx-auto flex w-full max-w-6xl flex-1 flex-col items-center justify-center gap-[clamp(1.25rem,3vh,2rem)] px-4 pb-[clamp(3rem,9vh,5rem)] pt-[clamp(1.5rem,4vh,3rem)] text-center sm:px-6">
         <div className="inline-flex max-w-full animate-fade-in items-center gap-2 rounded-full border border-border bg-muted/50 px-3 py-1 font-mono text-[11px] text-muted-foreground sm:gap-2.5 sm:px-4 sm:py-1.5 sm:text-sm">
@@ -22,8 +19,8 @@ export function Hero() {
             animationFillMode: "backwards",
           }}
         >
-          The intelligence layer for
-          <br className="hidden sm:block" /> prediction markets.
+          The unified intelligence layer
+          <br className="hidden sm:block" /> for every prediction market
         </h1>
 
         <p
