@@ -27,7 +27,7 @@ const FEATURES = [
 
 export function Features() {
   return (
-    <section id="features" className="border-b border-border/60 py-14 sm:py-28">
+    <section id="features" className="scroll-mt-20 border-b border-border/60 py-14 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mb-10 max-w-2xl sm:mb-14">
           <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.2em] text-signal-green sm:mb-3 sm:text-xs">

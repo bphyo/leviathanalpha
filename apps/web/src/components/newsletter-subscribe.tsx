@@ -6,15 +6,12 @@ import { Input } from "@leviathan/ui/input";
 
 type Status = "idle" | "loading" | "success" | "error";
 
-// TODO: swap this for your Jotform / Tally / Formspree endpoint.
-// For now the form fakes a submission locally so the design works end-to-end.
-const WAITLIST_ENDPOINT = process.env.NEXT_PUBLIC_WAITLIST_ENDPOINT ?? "";
+const NEWSLETTER_ENDPOINT = process.env.NEXT_PUBLIC_WAITLIST_ENDPOINT ?? "";
 
-export function WaitlistForm() {
+export function NewsletterSubscribe() {
   const [email, setEmail] = useState("");
-  const [userType, setUserType] = useState<string>("trader");
   const [status, setStatus] = useState<Status>("idle");
-  const [message, setMessage] = useState<string>("");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     if (status !== "success") return;
@@ -30,23 +27,23 @@ export function WaitlistForm() {
     setStatus("loading");
     setMessage("");
 
-    if (!WAITLIST_ENDPOINT) {
+    if (!NEWSLETTER_ENDPOINT) {
       await new Promise((r) => setTimeout(r, 600));
       setStatus("success");
-      setMessage("You're on the list. The Oracle drops every Sunday — first issue lands soon.");
+      setMessage("Subscribed. The Oracle drops every Sunday.");
       setEmail("");
       return;
     }
 
     try {
-      const res = await fetch(WAITLIST_ENDPOINT, {
+      const res = await fetch(NEWSLETTER_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ email, userType, referrer: document.referrer || null }),
+        body: JSON.stringify({ email, source: "newsletter" }),
       });
       if (!res.ok) throw new Error("Request failed");
       setStatus("success");
-      setMessage("You're on the list. The Oracle drops every Sunday — first issue lands soon.");
+      setMessage("Subscribed. The Oracle drops every Sunday.");
       setEmail("");
     } catch {
       setStatus("error");
@@ -57,7 +54,7 @@ export function WaitlistForm() {
   if (status === "success") {
     return (
       <div className="rounded-md border border-signal-green/40 bg-signal-green/5 p-4 text-left">
-        <p className="font-mono text-sm text-signal-green">✓ Confirmed</p>
+        <p className="font-mono text-sm text-signal-green">✓ Subscribed</p>
         <p className="mt-1 text-sm text-muted-foreground">{message}</p>
       </div>
     );
@@ -83,29 +80,9 @@ export function WaitlistForm() {
           disabled={status === "loading" || !email}
           className="sm:w-auto"
         >
-          {status === "loading" ? "Joining…" : "Join waitlist"}
+          {status === "loading" ? "Subscribing…" : "Subscribe"}
         </Button>
       </div>
-
-      <div className="flex flex-wrap items-center justify-center gap-1.5 text-sm">
-        <span className="mr-1 font-mono text-muted-foreground">I&apos;m a</span>
-        {(["trader", "researcher", "builder"] as const).map((t) => (
-          <button
-            key={t}
-            type="button"
-            onClick={() => setUserType(t)}
-            className={
-              "rounded-full border px-2.5 py-0.5 font-mono text-xs transition-colors " +
-              (userType === t
-                ? "border-signal-green/60 bg-signal-green/10 text-foreground"
-                : "border-border text-foreground hover:text-foreground")
-            }
-          >
-            {t}
-          </button>
-        ))}
-      </div>
-
       {status === "error" && (
         <p className="font-mono text-xs text-signal-red">{message}</p>
       )}

@@ -234,11 +234,11 @@ function AlertFeedPreview() {
             <div key={i} className="flex items-start gap-3 px-4 py-3 sm:px-6 sm:py-4">
               <span className="mt-0.5 text-lg leading-none">{a.glyph}</span>
               <div className="min-w-0 flex-1">
-                <div className="flex items-baseline justify-between gap-3">
-                  <p className={"truncate font-semibold " + (a.toneClass ?? "text-foreground")}>
+                <div className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3">
+                  <p className={"font-semibold sm:truncate " + (a.toneClass ?? "text-foreground")}>
                     {a.title}
                   </p>
-                  <span className="flex-shrink-0 text-[11px] text-muted-foreground">
+                  <span className="flex-shrink-0 font-mono text-[11px] text-muted-foreground">
                     {a.time}
                   </span>
                 </div>
@@ -362,9 +362,9 @@ function ArbScannerPreview() {
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0 flex-1">
-                  <div className="mb-1 flex items-center gap-2">
+                  <div className="mb-1 flex flex-wrap items-center gap-x-2 gap-y-1">
                     {statusPill(a.status)}
-                    <p className="truncate font-semibold text-foreground">{a.market}</p>
+                    <p className="font-semibold text-foreground sm:truncate">{a.market}</p>
                   </div>
                   <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-muted-foreground">
                     <span>
