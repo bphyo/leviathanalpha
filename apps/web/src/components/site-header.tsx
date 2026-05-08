@@ -35,7 +35,7 @@ export function SiteHeader() {
       <div className="relative mx-auto flex h-16 max-w-6xl items-center justify-between gap-2 px-3 sm:gap-3 sm:px-6">
         <Link
           href="/"
-          className="flex min-w-0 items-center gap-1.5 font-mono text-sm leading-none sm:gap-2.5 sm:text-xl"
+          className="flex min-w-0 items-center gap-2 font-mono text-base leading-none sm:gap-2.5 sm:text-xl"
           onClick={() => setOpen(false)}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
