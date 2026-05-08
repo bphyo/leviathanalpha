@@ -1,3 +1,6 @@
+import { CardTexture } from "./card-texture";
+import { SectionAmbient, SectionFadeBottom } from "./section-ambient";
+
 const FEATURES = [
   {
     tag: "01",
@@ -27,8 +30,10 @@ const FEATURES = [
 
 export function Features() {
   return (
-    <section id="features" className="scroll-mt-20 border-b border-border/60 py-14 sm:py-28">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+    <section id="features" className="relative scroll-mt-20 overflow-hidden py-14 sm:py-28">
+      <SectionAmbient noiseId="features-noise" />
+      <SectionFadeBottom />
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mb-10 max-w-2xl sm:mb-14">
           <p className="mb-2 font-mono text-[11px] uppercase tracking-[0.2em] text-signal-green sm:mb-3 sm:text-xs">
             / signals
@@ -46,16 +51,17 @@ export function Features() {
           {FEATURES.map((f) => (
             <div
               key={f.tag}
-              className="group relative flex flex-col gap-2.5 bg-background p-5 transition-colors hover:bg-muted/30 sm:gap-3 sm:p-7"
+              className="group relative flex flex-col gap-2.5 overflow-hidden bg-background p-5 transition-colors hover:bg-muted/30 sm:gap-3 sm:p-7"
             >
-              <div className="flex items-center justify-between">
+              <CardTexture />
+              <div className="relative flex items-center justify-between">
                 <span className="font-mono text-xs text-muted-foreground">{f.tag}</span>
                 <span className="font-mono text-[10px] uppercase tracking-widest text-signal-green">
                   {f.meta}
                 </span>
               </div>
-              <h3 className="text-base font-semibold tracking-tight sm:text-lg">{f.title}</h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">{f.body}</p>
+              <h3 className="relative text-base font-semibold tracking-tight sm:text-lg">{f.title}</h3>
+              <p className="relative text-sm leading-relaxed text-muted-foreground">{f.body}</p>
             </div>
           ))}
         </div>

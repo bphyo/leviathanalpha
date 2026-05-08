@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { RevealOnScroll } from "./reveal-on-scroll";
 
 export function LivePreview() {
   return (
@@ -26,10 +27,18 @@ export function LivePreview() {
         </div>
 
         <div className="grid gap-5 sm:gap-6">
-          <ChatPreview />
-          <AlertFeedPreview />
-          <ArbScannerPreview />
-          <WhaleProfilePreview />
+          <RevealOnScroll delay={0}>
+            <ChatPreview />
+          </RevealOnScroll>
+          <RevealOnScroll delay={80}>
+            <AlertFeedPreview />
+          </RevealOnScroll>
+          <RevealOnScroll delay={160}>
+            <ArbScannerPreview />
+          </RevealOnScroll>
+          <RevealOnScroll delay={240}>
+            <WhaleProfilePreview />
+          </RevealOnScroll>
         </div>
       </div>
     </section>

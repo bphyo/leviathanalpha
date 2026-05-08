@@ -2,7 +2,7 @@ import { WaitlistForm } from "./waitlist-form";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[calc(100vh-4rem)] flex-col overflow-hidden border-b border-border/60">
+    <section className="relative flex min-h-[calc(100vh-4rem)] flex-col overflow-hidden">
       <AmbientBackground />
 
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col items-center justify-center gap-[clamp(1.25rem,3vh,2rem)] px-4 pb-[clamp(3rem,9vh,5rem)] pt-[clamp(1.5rem,4vh,3rem)] text-center sm:px-6">
@@ -23,7 +23,7 @@ export function Hero() {
           }}
         >
           <span className="bg-gradient-to-b from-foreground via-foreground to-foreground/75 bg-clip-text text-transparent">
-            The unified intelligence layer
+            Unified intelligence
             <br className="hidden sm:block" /> for prediction markets
           </span>
         </h1>
@@ -96,18 +96,50 @@ function AmbientBackground() {
       {/* Subtle grid */}
       <div className="absolute inset-0 grid-bg radial-fade opacity-25" />
 
+      {/* Dot pattern overlay — adds instrumentation texture */}
+      <div
+        className="absolute inset-0 opacity-[0.18]"
+        style={{
+          backgroundImage:
+            "radial-gradient(hsl(var(--foreground) / 0.6) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+          maskImage:
+            "radial-gradient(ellipse 70% 60% at 50% 50%, transparent 30%, black 100%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 70% 60% at 50% 50%, transparent 30%, black 100%)",
+        }}
+      />
+
       {/* Three drifting gradient orbs at different speeds + colors */}
       <div className="absolute left-[12%] top-[18%] h-[55vh] w-[55vh] animate-drift-slower rounded-full bg-signal-green/[0.08] blur-[120px]" />
       <div className="absolute right-[8%] top-[28%] h-[48vh] w-[48vh] animate-drift-slow rounded-full bg-signal-amber/[0.05] blur-[110px]" />
       <div className="absolute bottom-[6%] left-1/2 h-[60vh] w-[60vh] -translate-x-1/2 animate-float-y-slow rounded-full bg-signal-green/[0.06] blur-[140px]" />
 
-      {/* Soft scanline sweeping vertically */}
-      <div className="absolute inset-x-0 top-0 h-[1px] animate-scan-y-slow bg-gradient-to-r from-transparent via-signal-green/35 to-transparent" />
-      <div className="absolute inset-x-0 top-0 h-[1px] animate-scan-y bg-gradient-to-r from-transparent via-signal-amber/20 to-transparent" />
+      {/* Film grain noise — breaks up flat gradients */}
+      <svg
+        className="absolute inset-0 h-full w-full opacity-[0.12] mix-blend-overlay"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <filter id="hero-noise">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.85"
+            numOctaves="2"
+            stitchTiles="stitch"
+          />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#hero-noise)" />
+      </svg>
 
-      {/* Top + bottom hairlines */}
+      {/* Corner crosshair marks — instrumentation flourish */}
+      <CornerMark className="left-6 top-6 sm:left-10 sm:top-10" />
+      <CornerMark className="right-6 top-6 rotate-90 sm:right-10 sm:top-10" />
+      <CornerMark className="bottom-6 left-6 -rotate-90 sm:bottom-10 sm:left-10" />
+      <CornerMark className="bottom-6 right-6 rotate-180 sm:bottom-10 sm:right-10" />
+
+      {/* Top hairline only */}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-signal-green/30 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
       {/* Soft vignette to keep focus center */}
       <div
@@ -118,6 +150,22 @@ function AmbientBackground() {
         }}
       />
     </div>
+  );
+}
+
+function CornerMark({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className={"absolute h-4 w-4 text-signal-green/40 sm:h-5 sm:w-5 " + className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.2"
+      strokeLinecap="round"
+    >
+      <path d="M0 8 V0 H8" />
+    </svg>
   );
 }
 
