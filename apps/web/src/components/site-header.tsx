@@ -42,7 +42,7 @@ export function SiteHeader() {
           <img
             src="/logo.svg"
             alt="Leviathan Alpha"
-            className="h-[1.4em] w-[1.4em] flex-shrink-0 translate-y-[2px] sm:translate-y-0"
+            className="h-[1.4em] w-[1.4em] flex-shrink-0 translate-y-[1px] sm:translate-y-0"
           />
           <span className="translate-y-[1px] truncate font-semibold leading-none tracking-tight">
             LEVIATHAN ALPHA
