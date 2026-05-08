@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Sigma } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { NewsletterSubscribe } from "@/components/newsletter-subscribe";
@@ -74,7 +75,12 @@ export default function NewsletterPage() {
           }}
         />
 
-        <div className="relative z-10 mx-auto max-w-5xl px-4 pb-14 pt-20 text-center sm:px-6 sm:pb-24 sm:pt-48">
+        <div className="relative z-10 mx-auto max-w-5xl px-4 pb-14 pt-10 text-center sm:px-6 sm:pb-24 sm:pt-28">
+          <div className="mb-5 flex justify-center sm:mb-7">
+            <span className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-signal-green/30 bg-signal-green/[0.06] text-signal-green shadow-[0_0_40px_-8px] shadow-signal-green/40 sm:h-16 sm:w-16">
+              <Sigma className="h-6 w-6 sm:h-7 sm:w-7" strokeWidth={1.6} />
+            </span>
+          </div>
           <h1
             className="font-mono font-semibold uppercase leading-[0.95] tracking-tight text-foreground"
             style={{ fontSize: "clamp(2.25rem, 8.5vw, 6rem)" }}
