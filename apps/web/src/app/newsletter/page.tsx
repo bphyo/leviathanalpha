@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Sigma } from "lucide-react";
+import { Anchor } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { NewsletterSubscribe } from "@/components/newsletter-subscribe";
@@ -39,23 +39,27 @@ const PAST_ISSUES = [
 const SECTIONS = [
   {
     tag: "01",
-    title: "Whale board",
+    title: "Whale Board",
     body: "The week's biggest wallet moves on Polymarket and Kalshi — entries, exits, and conviction.",
+    meta: "top wallets · weekly",
   },
   {
     tag: "02",
-    title: "Spread watch",
+    title: "Spread Watch",
     body: "Cross-venue mispricings worth a look. Same event, different price, different size.",
+    meta: "live spread scanner",
   },
   {
     tag: "03",
-    title: "Catalyst calendar",
+    title: "Catalyst Calendar",
     body: "What's on the tape next week — Fed prints, court rulings, sports finals, earnings.",
+    meta: "weekly · pre-event",
   },
   {
     tag: "04",
-    title: "Resolution risk",
-    body: "The fine print that decides the payout. Where the resolution source is fragile.",
+    title: "Resolution Risk",
+    body: "The fine print that decides the payout. Every Sunday: which markets have shaky resolution sources, ambiguous wording, or contested settlement risk.",
+    meta: "fragility scoring",
   },
 ];
 
@@ -78,14 +82,14 @@ export default function NewsletterPage() {
         <div className="relative z-10 mx-auto max-w-5xl px-4 pb-14 pt-10 text-center sm:px-6 sm:pb-24 sm:pt-28">
           <div className="mb-5 flex justify-center sm:mb-7">
             <span className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-signal-green/30 bg-signal-green/[0.06] text-signal-green shadow-[0_0_40px_-8px] shadow-signal-green/40 sm:h-16 sm:w-16">
-              <Sigma className="h-6 w-6 sm:h-7 sm:w-7" strokeWidth={1.6} />
+              <Anchor className="h-6 w-6 sm:h-7 sm:w-7" strokeWidth={1.6} />
             </span>
           </div>
           <h1
-            className="font-mono font-semibold uppercase leading-[0.95] tracking-tight text-foreground"
-            style={{ fontSize: "clamp(2.25rem, 8.5vw, 6rem)" }}
+            className="font-serif font-medium italic leading-[1.02] tracking-tight text-foreground"
+            style={{ fontSize: "clamp(3rem, 11vw, 7.5rem)" }}
           >
-            THE ORACLE
+            The Leviathan
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-balance text-base text-foreground sm:mt-6 sm:text-lg">
             A weekly read on what the smart money is pricing. One tight briefing on
@@ -100,7 +104,7 @@ export default function NewsletterPage() {
             <NewsletterSubscribe />
           </div>
 
-          <p className="mt-4 font-mono text-[11px] text-muted-foreground">
+          <p className="mt-5 font-mono text-[13px] text-muted-foreground sm:mt-6 sm:text-sm">
             Read by traders at Polymarket, Kalshi, and a few funds we&apos;re not
             allowed to name.
           </p>
@@ -115,7 +119,7 @@ export default function NewsletterPage() {
                 / what&apos;s inside
               </p>
               <h2 className="text-balance text-2xl font-semibold tracking-tight sm:text-4xl">
-                Four sections. Twenty minutes. Everything that matters.
+                Four sections. Ten minutes. Everything that matters.
               </h2>
             </div>
 
@@ -152,17 +156,27 @@ export default function NewsletterPage() {
               {PAST_ISSUES.map((issue) => (
                 <li
                   key={issue.n}
-                  className="flex flex-col gap-2 py-5 sm:flex-row sm:items-baseline sm:gap-8 sm:py-6"
+                  className="group relative -mx-3 flex cursor-pointer flex-col gap-2 rounded-md px-3 py-5 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-signal-green/[0.04] sm:-mx-4 sm:flex-row sm:items-baseline sm:gap-8 sm:px-4 sm:py-6"
                 >
-                  <div className="flex flex-shrink-0 items-baseline gap-3 font-mono text-xs text-muted-foreground sm:w-48">
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute left-0 top-1/2 hidden h-8 w-[2px] -translate-y-1/2 origin-center scale-y-0 rounded-full bg-signal-green transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-y-100 sm:block"
+                  />
+                  <div className="flex flex-shrink-0 items-baseline gap-3 font-mono text-xs text-muted-foreground transition-colors duration-300 group-hover:text-foreground sm:w-48">
                     <span className="text-foreground">{issue.n}</span>
                     <span>{issue.date}</span>
                   </div>
-                  <div className="min-w-0 flex-1">
-                    <h3 className="text-base font-semibold leading-snug tracking-tight sm:text-lg">
-                      {issue.title}
+                  <div className="min-w-0 flex-1 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1">
+                    <h3 className="flex items-baseline gap-2 text-base font-semibold leading-snug tracking-tight transition-colors duration-300 group-hover:text-signal-green sm:text-lg">
+                      <span>{issue.title}</span>
+                      <span
+                        aria-hidden
+                        className="inline-block -translate-x-2 text-signal-green opacity-0 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0 group-hover:opacity-100"
+                      >
+                        →
+                      </span>
                     </h3>
-                    <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+                    <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-muted-foreground transition-colors duration-300 group-hover:text-foreground/80">
                       {issue.blurb}
                     </p>
                   </div>

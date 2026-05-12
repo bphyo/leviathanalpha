@@ -1,9 +1,12 @@
+import Link from "next/link";
 import { WaitlistForm } from "./waitlist-form";
+import { SectionFadeBottom } from "./section-ambient";
 
 export function Hero() {
   return (
     <section className="relative flex min-h-[calc(100vh-4rem)] flex-col overflow-hidden">
       <AmbientBackground />
+      <SectionFadeBottom />
 
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col items-center justify-center gap-[clamp(1.25rem,3vh,2rem)] px-4 pb-[clamp(3rem,9vh,5rem)] pt-[clamp(1.5rem,4vh,3rem)] text-center sm:px-6">
         <div className="inline-flex max-w-full animate-fade-in items-center gap-2 rounded-full border border-border/80 bg-muted/40 px-3 py-1 font-mono text-[11px] text-muted-foreground backdrop-blur-sm sm:gap-2.5 sm:px-4 sm:py-1.5 sm:text-sm">
@@ -76,7 +79,12 @@ export function Hero() {
           </li>
           <li className="flex items-center gap-1.5">
             <CheckIcon />
-            Weekly newsletter
+            <Link
+              href="/newsletter"
+              className="underline-offset-2 transition-colors hover:text-signal-green hover:underline"
+            >
+              Weekly newsletter
+            </Link>
           </li>
           <li className="flex items-center gap-1.5">
             <CheckIcon />

@@ -54,3 +54,16 @@ export function SectionFadeBottom() {
     />
   );
 }
+
+export function SectionDivider() {
+  return (
+    <div
+      className="pointer-events-none absolute inset-x-0 bottom-0 h-px"
+      aria-hidden
+      style={{
+        background:
+          "linear-gradient(to right, transparent, hsl(var(--border) / 0.6) 50%, transparent)",
+      }}
+    />
+  );
+}

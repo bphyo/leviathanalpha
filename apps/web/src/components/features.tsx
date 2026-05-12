@@ -4,27 +4,39 @@ import { SectionAmbient, SectionFadeBottom } from "./section-ambient";
 const FEATURES = [
   {
     tag: "01",
-    title: "Whale tracking",
-    body: "Every Polymarket wallet, ranked by PnL and conviction. Get paged the moment a top wallet moves size — before the market reprices.",
+    title: "Whale Watch",
+    body: "Every top wallet, ranked by PnL and conviction. Get paged the moment a whale moves size — before the market reprices.",
     meta: "~2.1s median alert latency",
   },
   {
     tag: "02",
-    title: "Cross-venue arbitrage",
-    body: "Same event, different venue, different price. We surface mispricings between Polymarket, Kalshi, Manifold, and more so you don't have to tab-switch.",
+    title: "Unified Market View + Arbitrage",
+    body: "Same event, different venue, different price. We surface mispricings across Polymarket, Kalshi, Manifold, and more so you don't have to tab-switch.",
     meta: "live spread scanner",
   },
   {
     tag: "03",
-    title: "Resolution-source sentiment",
-    body: "Every market has a resolution source — Fed minutes, Truth Social, a sports score. We track the signal that actually moves the outcome.",
-    meta: "news · on-chain · social",
+    title: "Catalyst Calendar",
+    body: "What's on next week's tape — Fed prints, court rulings, sports finals, earnings — mapped to the markets each catalyst moves.",
+    meta: "weekly · pre-event",
   },
   {
     tag: "04",
-    title: "Backtested insider library",
-    body: "The wallets that keep calling it right. Ranked by conviction and hit rate — follow the insiders, not the noise.",
-    meta: "backtested hit rates",
+    title: "EV Scoring",
+    body: "Every market scored on expected value: implied probability vs. fair odds derived from on-chain flow, historical hit rates, and resolution context.",
+    meta: "auto · per market",
+  },
+  {
+    tag: "05",
+    title: "News & Sentiment Pulse",
+    body: "We crawl headlines, Twitter/X, Reddit, and on-chain chatter for every active market — surface the stories moving sentiment before the price moves.",
+    meta: "headlines · social · on-chain",
+  },
+  {
+    tag: "06",
+    title: "Wallet Stalking",
+    body: "Follow specific smart-money wallets one-by-one. Get pinged the second they enter or exit a position. Quiet copy-trade for the wallets you trust.",
+    meta: "per-wallet alerts",
   },
 ];
 
@@ -39,7 +51,7 @@ export function Features() {
             / signals
           </p>
           <h2 className="text-balance text-2xl font-semibold tracking-tight sm:text-4xl">
-            Your personalized AI agent for every prediction.
+            Six edges. One terminal.
           </h2>
           <p className="mt-3 text-sm text-muted-foreground sm:mt-4 sm:text-base">
             Retail trades on vibes. Sharp traders trade on flow, spread, and resolution
