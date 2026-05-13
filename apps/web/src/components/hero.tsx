@@ -14,7 +14,7 @@ export function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-signal-green/60 opacity-75" />
             <span className="relative inline-flex h-full w-full rounded-full bg-signal-green" />
           </span>
-          <span className="truncate">Polymarket, Kalshi, Manifold &mdash; and more</span>
+          <span className="truncate">Polymarket, Kalshi, PredictIt &mdash; and more</span>
         </div>
 
         <h1

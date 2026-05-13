@@ -19,10 +19,10 @@ export function SiteFooter() {
         <div className="flex flex-shrink-0 items-center gap-4">
           <div className="flex items-center gap-2">
             <a
-              href="#"
+              href="https://x.com/LeviathanLabs_"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Follow on X"
+              aria-label="Follow @LeviathanLabs_ on X"
               className="inline-flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground"
             >
               <XIcon />

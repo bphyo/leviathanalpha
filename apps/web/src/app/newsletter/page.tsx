@@ -7,7 +7,7 @@ import { CardTexture } from "@/components/card-texture";
 import { RevealOnScroll } from "@/components/reveal-on-scroll";
 
 export const metadata: Metadata = {
-  title: "The Oracle — Weekly briefing on prediction markets · Leviathan Alpha",
+  title: "The Leviathan — Weekly briefing on prediction markets · Leviathan Alpha",
   description:
     "Every Sunday: the biggest whale moves, cross-venue spreads, and catalysts on next week's tape. Free.",
 };

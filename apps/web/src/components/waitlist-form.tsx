@@ -33,7 +33,7 @@ export function WaitlistForm() {
     if (!WAITLIST_ENDPOINT) {
       await new Promise((r) => setTimeout(r, 600));
       setStatus("success");
-      setMessage("You're on the list. The Oracle drops every Sunday — first issue lands soon.");
+      setMessage("You're on the list. We'll send The Leviathan every Sunday — and reach out when dashboard access opens.");
       setEmail("");
       return;
     }
@@ -46,7 +46,7 @@ export function WaitlistForm() {
       });
       if (!res.ok) throw new Error("Request failed");
       setStatus("success");
-      setMessage("You're on the list. The Oracle drops every Sunday — first issue lands soon.");
+      setMessage("You're on the list. We'll send The Leviathan every Sunday — and reach out when dashboard access opens.");
       setEmail("");
     } catch {
       setStatus("error");

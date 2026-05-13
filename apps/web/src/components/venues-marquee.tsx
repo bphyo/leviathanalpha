@@ -7,15 +7,16 @@ type Venue = {
 
 const VENUES: Venue[] = [
   { name: "Polymarket", logo: "/venues/polymarket.png" },
-  { name: "Polymarket US", logo: "/venues/polymarket.png" },
   { name: "Kalshi", logo: "/venues/kalshi.png" },
-  { name: "Manifold", logo: "/venues/manifold.jpg" },
+  { name: "PredictIt", logo: "/venues/predictit.jpeg" },
   { name: "Limitless", logo: "/venues/limitless.jpeg" },
   { name: "Smarkets", logo: "/venues/smarkets.png" },
   { name: "Metaculus", logo: "/venues/metaculus.jpeg" },
   { name: "Myriad", logo: "/venues/myriad.jpg" },
   { name: "Probable", logo: "/venues/probable.jpeg" },
   { name: "Opinion", logo: "/venues/opinion.jpeg" },
+  { name: "ProphetX", logo: "/venues/prophetx.png" },
+  { name: "Predict.fun", logo: "/venues/predictfun.png" },
   { name: "Baozi", logo: "/venues/baozi.jpg" },
 ];
 
@@ -27,7 +28,7 @@ export function VenuesMarquee() {
           / venues
         </p>
         <p className="mb-5 text-center font-mono text-xs uppercase tracking-[0.2em] text-foreground sm:mb-6 sm:text-sm">
-          Indexing all 10+ venues that matter
+          Indexing all 12+ venues that matter
         </p>
         <div className="group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <div className="flex w-max animate-marquee items-start gap-12 whitespace-nowrap py-2">

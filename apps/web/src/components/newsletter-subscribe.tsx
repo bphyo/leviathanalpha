@@ -30,7 +30,7 @@ export function NewsletterSubscribe() {
     if (!NEWSLETTER_ENDPOINT) {
       await new Promise((r) => setTimeout(r, 600));
       setStatus("success");
-      setMessage("Subscribed. The Oracle drops every Sunday.");
+      setMessage("Subscribed. The Leviathan drops every Sunday.");
       setEmail("");
       return;
     }
@@ -43,7 +43,7 @@ export function NewsletterSubscribe() {
       });
       if (!res.ok) throw new Error("Request failed");
       setStatus("success");
-      setMessage("Subscribed. The Oracle drops every Sunday.");
+      setMessage("Subscribed. The Leviathan drops every Sunday.");
       setEmail("");
     } catch {
       setStatus("error");
