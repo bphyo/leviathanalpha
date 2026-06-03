@@ -1,10 +1,15 @@
+// noiseId kept for API compatibility — no longer used since the heavy SVG noise filter was removed
 type Props = {
-  noiseId: string;
+  noiseId?: string;
 };
 
-export function SectionAmbient({ noiseId }: Props) {
+export function SectionAmbient({}: Props = {}) {
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+    <div
+      className="pointer-events-none absolute inset-0 overflow-hidden"
+      aria-hidden
+      style={{ contain: "paint" }}
+    >
       <div className="absolute inset-0 grid-bg radial-fade opacity-25" />
 
       <div
@@ -20,24 +25,14 @@ export function SectionAmbient({ noiseId }: Props) {
         }}
       />
 
-      <div className="absolute left-[10%] top-[15%] h-[50vh] w-[50vh] animate-drift-slower rounded-full bg-signal-green/[0.06] blur-[120px]" />
-      <div className="absolute right-[10%] bottom-[15%] h-[44vh] w-[44vh] animate-drift-slow rounded-full bg-signal-amber/[0.04] blur-[110px]" />
-
-      <svg
-        className="absolute inset-0 h-full w-full opacity-[0.10] mix-blend-overlay"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <filter id={noiseId}>
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.85"
-            numOctaves="2"
-            stitchTiles="stitch"
-          />
-          <feColorMatrix type="saturate" values="0" />
-        </filter>
-        <rect width="100%" height="100%" filter={`url(#${noiseId})`} />
-      </svg>
+      <div
+        className="absolute left-[10%] top-[15%] h-[50vh] w-[50vh] animate-drift-slower rounded-full bg-signal-green/[0.07] blur-[80px]"
+        style={{ willChange: "transform" }}
+      />
+      <div
+        className="absolute right-[10%] bottom-[15%] h-[44vh] w-[44vh] animate-drift-slow rounded-full bg-signal-amber/[0.05] blur-[80px]"
+        style={{ willChange: "transform" }}
+      />
     </div>
   );
 }

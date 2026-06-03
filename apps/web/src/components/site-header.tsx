@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { href: "/newsletter", label: "Newsletter", internal: true },
 ];
 
-export function SiteHeader() {
+export function SiteHeader({ minimal = false }: { minimal?: boolean } = {}) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -49,48 +49,72 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-9 font-mono text-base text-muted-foreground sm:flex">
-          {NAV_LINKS.map((link) =>
-            link.internal ? (
-              <Link
-                key={link.href}
-                href={link.href as "/newsletter"}
-                className="transition-colors hover:text-foreground"
-              >
-                {link.label}
-              </Link>
-            ) : (
-              <a
-                key={link.href}
-                href={link.href}
-                className="transition-colors hover:text-foreground"
-              >
-                {link.label}
-              </a>
-            )
-          )}
-        </nav>
+        {!minimal && (
+          <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-9 font-mono text-base text-muted-foreground sm:flex">
+            {NAV_LINKS.map((link) =>
+              link.internal ? (
+                <Link
+                  key={link.href}
+                  href={link.href as "/newsletter"}
+                  className="transition-colors hover:text-foreground"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="transition-colors hover:text-foreground"
+                >
+                  {link.label}
+                </a>
+              )
+            )}
+          </nav>
+        )}
 
-        <div className="flex flex-shrink-0 items-center gap-2">
-          <a
-            href="/#waitlist"
-            className="whitespace-nowrap rounded-md bg-signal-green px-2.5 py-1.5 text-[11px] font-medium text-black shadow-[0_0_24px_-4px] shadow-signal-green/40 transition-colors hover:bg-signal-green/90 sm:px-3.5 sm:text-sm"
+        {minimal ? (
+          <Link
+            href="/"
+            aria-label="Back to home"
+            className="group flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-md text-muted-foreground transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-muted/40 hover:text-signal-green"
           >
-            Join waitlist
-          </a>
-          <button
-            type="button"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            onClick={() => setOpen((v) => !v)}
-            className="-mr-1 flex h-9 w-9 items-center justify-center rounded-md text-foreground transition-colors hover:bg-muted/60 sm:hidden"
-          >
-            <MorphIcon open={open} />
-          </button>
-        </div>
+            <span
+              aria-hidden
+              className="inline-block text-lg transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-x-1"
+            >
+              ←
+            </span>
+          </Link>
+        ) : (
+          <div className="flex flex-shrink-0 items-center gap-2 sm:gap-2.5">
+            <Link
+              href="/login"
+              className="whitespace-nowrap rounded-md border border-border bg-transparent px-2.5 py-1.5 text-[11px] font-medium text-foreground transition-colors hover:border-foreground/40 hover:bg-muted/50 sm:px-3.5 sm:text-sm"
+            >
+              Login
+            </Link>
+            <Link
+              href="/signup"
+              className="whitespace-nowrap rounded-md bg-signal-green px-2.5 py-1.5 text-[11px] font-medium text-black shadow-[0_0_24px_-4px] shadow-signal-green/40 transition-colors hover:bg-signal-green/90 sm:px-3.5 sm:text-sm"
+            >
+              Sign up
+            </Link>
+            <button
+              type="button"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              aria-controls="mobile-nav"
+              onClick={() => setOpen((v) => !v)}
+              className="-mr-1 flex h-9 w-9 items-center justify-center rounded-md text-foreground transition-colors hover:bg-muted/60 sm:hidden"
+            >
+              <MorphIcon open={open} />
+            </button>
+          </div>
+        )}
       </div>
 
+      {!minimal && (
       <div
         id="mobile-nav"
         aria-hidden={!open}
@@ -133,6 +157,7 @@ export function SiteHeader() {
           })}
         </nav>
       </div>
+      )}
     </header>
   );
 }
